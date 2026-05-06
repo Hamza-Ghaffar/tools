@@ -2,8 +2,11 @@
 # This file is the "registry" of all tools available to the LLM.
 # Each tool is imported and added to the TOOLS list.
 
+import json
+
 from tools import database_tool
 from tools import weather_tool
+from tools import email_tool
 
 
 # 2. Extract schemas automatically
@@ -15,17 +18,14 @@ TOOL_REGISTRY = {
     "get_weather":    weather_tool.get_weather,
     "get_stock_price": stock_tool.get_stock_price,
     "query_database": database_tool.query_database,
-
-    # New tool? Add one line:
-    # "send_email":   email_tool.send_email,
+    "send_email": email_tool.send_email,
 }
 
 ALL_SCHEMAS = [
     weather_tool.SCHEMA,
     stock_tool.SCHEMA,
     database_tool.SCHEMA,
-    # New tool? Add one line:
-    # email_tool.SCHEMA,
+    email_tool.SCHEMA,
 ]
 
 # ── DISPATCHER FUNCTION ──────────────────────────────────────────
